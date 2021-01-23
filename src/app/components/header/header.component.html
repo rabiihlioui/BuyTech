@@ -1,0 +1,56 @@
+<nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="./home/home.html"> <i class="ion-cube"></i> Unistore</a>
+      </div>
+
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li [ngClass]="{'active': activateMenuItemService.activeHome}">
+            <a (click)="activateMenuItemService.activateHome()" routerLink="/">Home</a>
+          </li>
+          <li [ngClass]="{'active': activateMenuItemService.activeCatalog}">
+            <a (click)="activateMenuItemService.activateCatalog()" routerLink="/catalog">Catalog</a>
+          </li>
+          <li [ngClass]="{'active': activateMenuItemService.activeBlog}">
+            <a (click)="activateMenuItemService.activateBlog()" routerLink="/blog">Blog</a>
+          </li>
+          <li [ngClass]="{'active': activateMenuItemService.activeGallery}">
+            <a (click)="activateMenuItemService.activateGallery()" routerLink="/gallery">Gallery</a>
+          </li>
+          <li [ngClass]="{'active': activateMenuItemService.activeCart}">
+            <a (click)="activateMenuItemService.activateCart()" routerLink="/cart">Cart</a>
+          </li>
+          <li [ngClass]="{'active': activateMenuItemService.activeCheckout}">
+            <a (click)="activateMenuItemService.activateCheckout()" routerLink="/checkout">Checkout</a>
+          </li>
+          <li [ngClass]="{'active': activateMenuItemService.activeFaq}">
+            <a (click)="activateMenuItemService.activateFaq()" routerLink="/faq">FAQ</a>
+          </li>
+          <li [ngClass]="{'active': activateMenuItemService.activeContacts}">
+            <a (click)="activateMenuItemService.activateContacts()" routerLink="/contacts">Contacts</a>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li [ngClass]="{'active': activateMenuItemService.activeLogin}">
+            <a (click)="activateMenuItemService.activateLogin()" routerLink="/login"> <i class="ion-android-person"></i> Login </a>
+          </li>
+          <li [ngClass]="{'active': activateMenuItemService.activeSignUp}">
+            <a (click)="activateMenuItemService.activateSignUp()" routerLink="/signUp"> Sign Up</a>
+          </li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div><!--/.container-fluid -->
+</nav>
+<hr class="offset-lg">
+
+<router-outlet></router-outlet>
+
+
+<app-footer></app-footer>
