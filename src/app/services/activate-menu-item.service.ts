@@ -15,6 +15,7 @@ export class ActivateMenuItemService {
   activeContacts: boolean
   activeLogin: boolean
   activeSignIn: boolean
+  activeSignUp: boolean
 
   constructor() {
     this.activateHome();
@@ -31,6 +32,7 @@ export class ActivateMenuItemService {
     this.activeContacts = false;
     this.activeLogin = false;
     this.activeSignIn = false;
+    this.activeSignUp = false;
   }
 
   activateCatalog() {
@@ -44,6 +46,7 @@ export class ActivateMenuItemService {
     this.activeContacts = false;
     this.activeLogin = false;
     this.activeSignIn = false;
+    this.activeSignUp = false;
   }
 
   activateBlog() {
@@ -57,6 +60,7 @@ export class ActivateMenuItemService {
     this.activeContacts = false;
     this.activeLogin = false;
     this.activeSignIn = false;
+    this.activeSignUp = false;
   }
 
   activateGallery() {
@@ -70,6 +74,7 @@ export class ActivateMenuItemService {
     this.activeContacts = false;
     this.activeLogin = false;
     this.activeSignIn = false;
+    this.activeSignUp = false;
   }
 
   activateCart() {
@@ -83,6 +88,7 @@ export class ActivateMenuItemService {
     this.activeContacts = false;
     this.activeLogin = false;
     this.activeSignIn = false;
+    this.activeSignUp = false;
   }
 
   activateCheckout() {
@@ -96,6 +102,7 @@ export class ActivateMenuItemService {
     this.activeContacts = false;
     this.activeLogin = false;
     this.activeSignIn = false;
+    this.activeSignUp = false;
   }
 
   activateFaq() {
@@ -109,6 +116,7 @@ export class ActivateMenuItemService {
     this.activeContacts = false;
     this.activeLogin = false;
     this.activeSignIn = false;
+    this.activeSignUp = false;
   }
 
   activateContacts() {
@@ -122,6 +130,7 @@ export class ActivateMenuItemService {
     this.activeContacts = true;
     this.activeLogin = false;
     this.activeSignIn = false;
+    this.activeSignUp = false;
   }
 
   activateLogin() {
@@ -135,6 +144,7 @@ export class ActivateMenuItemService {
     this.activeContacts = false;
     this.activeLogin = true;
     this.activeSignIn = false;
+    this.activeSignUp = false;
   }
 
   activateSignIn() {
@@ -148,6 +158,21 @@ export class ActivateMenuItemService {
     this.activeContacts = false;
     this.activeLogin = false;
     this.activeSignIn = true;
+    this.activeSignUp = false;
+  }
+
+  activateSignUp() {
+    this.activeHome = false;
+    this.activeCatalog = false;
+    this.activeBlog = false;
+    this.activeGallery = false;
+    this.activeCart = false;
+    this.activeCheckout = false;
+    this.activeFaq = false;
+    this.activeContacts = false;
+    this.activeLogin = false;
+    this.activeSignIn = false;
+    this.activeSignUp = true;
   }
 
 }
