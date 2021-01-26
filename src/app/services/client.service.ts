@@ -19,6 +19,7 @@ export class ClientService {
   }
 
   createClient(client: Client): Observable<any> {
+    console.log(client);
     return this.httpClient.post(`${this.baseURL}`, client);
   }
 

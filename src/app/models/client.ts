@@ -5,7 +5,8 @@ export class Client {
     gender?: string;
     email?: string;
     password?: string;
-    birthdate?: Date;
+    joiningDate?: Date;
+    phoneNumber?: number;
 
     constructor(
         id_client: number = 0,
@@ -14,7 +15,7 @@ export class Client {
         gender: string = '',
         email: string = '',
         password: string = '',
-        birthdate: Date = new Date()
+        phoneNumber: number = 0
     ){
         this.id_client = id_client;
         this.firstName = firstName;
@@ -22,6 +23,7 @@ export class Client {
         this.gender = gender;
         this.email = email;
         this.password = password;
-        this.birthdate = birthdate;
+        this.joiningDate = new Date();
+        this.phoneNumber = phoneNumber;
     }
 }
