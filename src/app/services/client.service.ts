@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Client } from '../models/client';
 
@@ -19,7 +19,6 @@ export class ClientService {
   }
 
   createClient(client: Client): Observable<any> {
-    console.log(client);
     return this.httpClient.post(`${this.baseURL}`, client);
   }
 
@@ -33,6 +32,11 @@ export class ClientService {
 
   deleteClient(id: number): Observable<any>{
     return this.httpClient.delete(`${this.baseURL}/${id}`);
+  }
+
+  getClientByEmail(email: string): Observable<any>{
+    const params = new HttpParams().append('email', email);
+    return this.httpClient.get<Client>(`${this.baseURL}/clientByEmail`, { params });
   }
 
 }
