@@ -34,10 +34,10 @@
               </div>
               <div class="col-sm-12">
                 <input
-                    #lastname="ngModel"
-                    id="lastname"
+                    #lastName="ngModel"
+                    id="lastName"
                     type="text"
-                    name="lastname"
+                    name="lastName"
                     class="form-control"
                     placeholder="Last Name"
                     minlength="3"
@@ -46,18 +46,17 @@
                     ngModel />
                 <div
                     class="alert alert-danger"
-                    *ngIf="lastname.invalid && lastname.touched"
+                    *ngIf="lastName.invalid && lastName.touched"
                 >
-                    <div *ngIf="lastname.errors.required">
+                    <div *ngIf="lastName.errors.required">
                         Last Name is required.
                     </div>
-                    <div *ngIf="lastname.errors.minlength">
+                    <div *ngIf="lastName.errors.minlength">
                         Last Name must be at least 3 characters long.
                     </div>
                 </div>
                 <br>
               </div>
-              <div class="form-group">
               <div class="col-sm-12">
                 <label class="radio-inline mr-3">
                   <input
@@ -83,22 +82,21 @@
                       required>
                   Female
                 </label>
-              </div>
-              <div
-              class="alert alert-danger"
-              *ngIf="gender.invalid && gender.touched"
-          >
-              <div *ngIf="gender.errors.required">
+                </div>
+                  <div
+                    class="alert alert-danger"
+                    *ngIf="gender.invalid && gender.touched"
+                  >
+                <div *ngIf="gender.errors.required">
                   Gender is required.
+                </div>
               </div>
-          </div>
-              </div>
-              <div class="col-sm-12">
+              <div class="col-sm-12" style="margin-top: 15px">
                 <input
-                    #phonenumber="ngModel"
-                    id="phonenumber"
+                    #phoneNumber="ngModel"
+                    id="phoneNumber"
                     type="text"
-                    name="phonenumber"
+                    name="phoneNumber"
                     class="form-control"
                     placeholder="Phone Number"
                     minlength="8"
@@ -107,15 +105,15 @@
                     ngModel />
                 <div
                     class="alert alert-danger"
-                    *ngIf="phonenumber.invalid && phonenumber.touched"
+                    *ngIf="phoneNumber.invalid && phoneNumber.touched"
                 >
-                    <div *ngIf="phonenumber.errors.required">
+                    <div *ngIf="phoneNumber.errors.required">
                         Phone Number is required.
                     </div>
-                    <div *ngIf="phonenumber.errors.minlength">
+                    <div *ngIf="phoneNumber.errors.minlength">
                         Phone Number must be 8 characters long.
                     </div>
-                    <div *ngIf="phonenumber.errors.maxlength">
+                    <div *ngIf="phoneNumber.errors.maxlength">
                       Phone Number must be 8 characters long.
                   </div>
                 </div>
@@ -179,8 +177,6 @@
           </button>
           <button type="reset" class="btn btn-warning" style="margin-left: 15px;">
             Cancel</button>
-
-            <button class="btn btn-primary" (click)="showToastr()">Show Toastr</button>
 
           <br><br>
           <p>

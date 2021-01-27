@@ -19,26 +19,27 @@ export class SignUpComponent implements OnInit {
   }
 
   registerNewClient(client: Client){
-    
-    client.joiningDate = new Date();
-    this.clientService.createClient(client).subscribe();
+    this.clientService.getClientByEmail(client.email).subscribe(
+      data => this.displayToastr('Client is already registered. Try to login'),
+      error => {
+        client.joiningDate = new Date();
+        this.clientService.createClient(client).subscribe();
+      }
+    );
   }
 
-  showToastr(){
+  displayToastr(message: string) {
+    this.toastrService.error(message, 'Error', {
+      timeOut: 6000,
+      progressBar: false
+    });
 
-    this.clientService.getClientById(15).subscribe(
-      data => console.log(data)
-    )
-
-/*     this.clientService.getClientByEmail('rabii@gmail.com').subscribe(
-      data => console.log(data)
-    ); */
 /*     this.toastrService.success('Some messages', 'title', {
       timeOut: 4000,
       progressBar: false
-    }); */
+    });
 
-/*     this.toastrService.error('Some messages', 'title', {
+    this.toastrService.error('Some messages', 'title', {
       timeOut: 6000,
       progressBar: false
     });
@@ -52,6 +53,7 @@ export class SignUpComponent implements OnInit {
       timeOut: 6000,
       progressBar: false
     }); */
+
   }
 
 }
