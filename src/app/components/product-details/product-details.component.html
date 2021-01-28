@@ -53,14 +53,13 @@
           <div class="col-sm-5 col-md-5">
             <img src="../assets/img/brands/hp.png" alt="HP" class="brand hidden-xs" />
 
-            <h1>HP Chromebook 11</h1>
+            <h1>{{productDetails.brand}} {{productDetails.subBrand}}</h1>
 
-            <p> &middot; Chrome OS™</p>
-            <p> &middot; Intel® Celeron® processor</p>
-            <p> &middot; Intel HD Graphics</p>
+            <p> &middot; {{productDetails.operatingSystem}} OS</p>
+            <p> &middot; {{productDetails.processorTechnology}}</p>
+            <p> &middot; {{productDetails.graphics}}</p>
 
-            <p class="price">$209.99</p>
-            <p class="price through">$249.99</p>
+            <p class="price">{{productDetails.price}} TND</p>
             <br><br>
 
             <button class="btn btn-primary btn-rounded"> <i class="ion-bag"></i> Add to cart</button>
@@ -71,11 +70,11 @@
 
 	    	<div class="row">
 	    		<div class="col-sm-7">
-	    			<h1>HP Chromebook 11</h1>
+	    			<h1>{{productDetails.brand}} {{productDetails.subBrand}}</h1>
 		    		 <br>
 
 		    		 <p>
-		    		 	The stylish HP Chromebook provides a speedy connection to your protected online content and automatically updated apps, all within an ultra-thin full-sized notebook, providing a comfortable gateway to surf, socialize and play.
+              {{productDetails.description}}
 		    		 </p>
 		    		 <br>
 
@@ -84,47 +83,52 @@
 
               <div class="row specification">
                 <div class="col-sm-6"> <label>Operating system</label> </div>
-                <div class="col-sm-6"> <p>Chrome OS™</p> </div>
+                <div class="col-sm-6"> <p>{{productDetails.operatingSystem}} OS™</p> </div>
+              </div>
+
+              <div class="row specification">
+                <div class="col-sm-6"> <label>Screen</label> </div>
+                <div class="col-sm-6"> <p>{{productDetails.screen}}"</p> </div>
               </div>
               
               <div class="row specification">
                 <div class="col-sm-6"> <label>Processor</label> </div>
-                <div class="col-sm-6"> <p>Intel® Celeron® N2840 with Intel® HD Graphics (2.16 GHz, up to 2.58 GHz, 1 MB cache, 2 cores)</p> </div>
+                <div class="col-sm-6"> <p>{{productDetails.processor}}</p> </div>
               </div>
 
               <div class="row specification">
                 <div class="col-sm-6"> <label>Processor technology</label> </div>
-                <div class="col-sm-6"> <p>Intel Turbo Boost Technology</p> </div>
+                <div class="col-sm-6"> <p>{{productDetails.processorTechnology}}</p> </div>
               </div>
 
               <div class="row specification">
                 <div class="col-sm-6"> <label>Graphics</label> </div>
-                <div class="col-sm-6"> <p>Intel HD Graphics</p> </div>
+                <div class="col-sm-6"> <p>{{productDetails.graphics}}</p> </div>
               </div>
 
               <div class="row specification">
                 <div class="col-sm-6"> <label>Memory</label> </div>
-                <div class="col-sm-6"> <p>2 GB DDR3L SDRAM (onboard)</p> </div>
+                <div class="col-sm-6"> <p>{{productDetails.memory}}</p> </div>
               </div>
 
               <div class="row specification">
                 <div class="col-sm-6"> <label>Hard drive</label> </div>
-                <div class="col-sm-6"> <p>16 GB eMMC</p> </div>
+                <div class="col-sm-6"> <p>{{productDetails.hardDrive}}</p> </div>
               </div>
 
               <div class="row specification">
                 <div class="col-sm-6"> <label>Wireless</label> </div>
-                <div class="col-sm-6"> <p>802.11ac (2x2) and Bluetooth® 4.0 combo</p> </div>
+                <div class="col-sm-6"> <p>{{productDetails.wireless}}</p> </div>
               </div>
 
               <div class="row specification">
                 <div class="col-sm-6"> <label>Power supply</label> </div>
-                <div class="col-sm-6"> <p>45 W AC power adapter</p> </div>
+                <div class="col-sm-6"> <p>{{productDetails.powerSupply}}</p> </div>
               </div>
 
               <div class="row specification">
                 <div class="col-sm-6"> <label>Battery</label> </div>
-                <div class="col-sm-6"> <p>3-cell, 36 Wh Li-ion</p> </div>
+                <div class="col-sm-6"> <p>{{productDetails.battery}}</p> </div>
               </div>
           </div>
           <div class="col-sm-5">

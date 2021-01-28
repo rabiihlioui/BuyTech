@@ -14,6 +14,7 @@ import { LoginComponent } from './components/login/login.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { ErrorComponent } from './components/error/error.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
 
 
 const routes: Routes = [
@@ -23,7 +24,14 @@ const routes: Routes = [
     children:
     [
       { path: '', component: HomeComponent },
-      { path: 'catalog', component: CatalogComponent },
+      { 
+        path: 'catalog',
+        component: CatalogComponent,
+        children:
+        [
+          { path: 'productDetails/:prodId', component: ProductDetailsComponent }
+        ]
+      },
       { path: 'blog', component: BlogComponent },
       { path: 'gallery', component: GalleryComponent },
       { path: 'cart', component: CartComponent },

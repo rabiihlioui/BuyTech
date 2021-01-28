@@ -1,0 +1,22 @@
+.paginate {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 40px;
+}
+
+.small {
+    font-style: italic;
+    opacity: .3;
+    margin-right: 10px;
+}
+ 
+.input-page {
+    text-align: center;
+} 
+
+.button-page {
+    border: none;
+    margin-right: 2px;
+    width: 30px;
+    height: 30px;
+}

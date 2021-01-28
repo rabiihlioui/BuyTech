@@ -82,8 +82,7 @@
                       required>
                   Female
                 </label>
-                </div>
-                  <div
+                <div
                     class="alert alert-danger"
                     *ngIf="gender.invalid && gender.touched"
                   >
@@ -91,30 +90,31 @@
                   Gender is required.
                 </div>
               </div>
-              <div class="col-sm-12" style="margin-top: 15px">
-                <input
-                    #phoneNumber="ngModel"
-                    id="phoneNumber"
-                    type="text"
-                    name="phoneNumber"
-                    class="form-control"
-                    placeholder="Phone Number"
-                    minlength="8"
-                    maxlength="8"
-                    required
-                    ngModel />
+            </div>
+            <div class="col-sm-12" style="margin-top: 15px">
+              <input
+                  #phoneNumber="ngModel"
+                  id="phoneNumber"
+                  type="text"
+                  name="phoneNumber"
+                  class="form-control"
+                  placeholder="Phone Number"
+                  minlength="8"
+                  maxlength="8"
+                  required
+                  ngModel />
                 <div
-                    class="alert alert-danger"
-                    *ngIf="phoneNumber.invalid && phoneNumber.touched"
+                  class="alert alert-danger"
+                  *ngIf="phoneNumber.invalid && phoneNumber.touched"
                 >
-                    <div *ngIf="phoneNumber.errors.required">
-                        Phone Number is required.
-                    </div>
-                    <div *ngIf="phoneNumber.errors.minlength">
-                        Phone Number must be 8 characters long.
-                    </div>
-                    <div *ngIf="phoneNumber.errors.maxlength">
+                  <div *ngIf="phoneNumber.errors.required">
+                      Phone Number is required.
+                  </div>
+                  <div *ngIf="phoneNumber.errors.minlength">
                       Phone Number must be 8 characters long.
+                  </div>
+                  <div *ngIf="phoneNumber.errors.maxlength">
+                    Phone Number must be 8 characters long.
                   </div>
                 </div>
                 <br>

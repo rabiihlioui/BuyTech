@@ -4,6 +4,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -49,12 +51,14 @@ import { ProductDetailsComponent } from './components/product-details/product-de
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    NgxPaginationModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({
       timeOut: 1000,
       progressBar: true,
       progressAnimation: 'increasing'
-    })
+    }),
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
