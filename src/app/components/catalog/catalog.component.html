@@ -231,10 +231,22 @@
           <i class="ion-arrow-down-b"></i> Sorting Products
         </button>
         <ul class="dropdown-menu">
-          <li [ngClass]="{'active': activeNameUp}"><a (click)="sortProductNameUp()"> <i class="ion-arrow-down-c"></i> Name [A-Z]</a></li>
-          <li [ngClass]="{'active': activeNameDown}"><a (click)="sortProductNameDown()"> <i class="ion-arrow-up-c"></i> Name [Z-A]</a></li>
-          <li [ngClass]="{'active': activePriceUp}"><a (click)="sortProductPriceUp()"> <i class="ion-arrow-down-c"></i> Price [Low-High]</a></li>
-          <li [ngClass]="{'active': activePriceDown}"><a (click)="sortProductPriceDown()"> <i class="ion-arrow-up-c"></i> Price [High-Low]</a></li>
+          <li [ngClass]="{'active': activeNameUp}">
+              <a (click)="sortProductNameUp()">
+                <i class="ion-arrow-down-c"></i> Name [A-Z]</a>
+          </li>
+          <li [ngClass]="{'active': activeNameDown}">
+              <a (click)="sortProductNameDown()">
+                <i class="ion-arrow-up-c"></i> Name [Z-A]</a>
+          </li>
+          <li [ngClass]="{'active': activePriceUp}">
+              <a (click)="sortProductPriceUp()">
+                <i class="ion-arrow-down-c"></i> Price [Low-High]</a>
+          </li>
+          <li [ngClass]="{'active': activePriceDown}">
+              <a (click)="sortProductPriceDown()">
+                <i class="ion-arrow-up-c"></i> Price [High-Low]</a>
+          </li>
         </ul>
       </div>
 
@@ -264,81 +276,42 @@
   <div class="container">
     <div class="row">
       <!-- Filter -->
+      
       <div class="col-sm-3 filter">
         <div class="item">
             <div class="title">
-                <a href="#clear" data-action="open" class="down"> <i class="ion-android-arrow-dropdown"></i> Open</a>
-                <a href="#clear" data-action="clear"> <i class="ion-ios-trash-outline"></i> Clear</a>
-                <h1 class="h4">Type</h1>
+               <h1 class="h4">Type <input #switchType id="showType" type="checkbox" (change)="switchOnOff(switchType.checked, switchType.id)" class="switch" style="margin-left: 15px;">
+                <button #clearTypes *ngIf="switchType.checked" value="clearTypes" (click)="clearAllcheckbox(clearTypes.value)" class="clear-button"> <i class="ion-ios-trash-outline"></i> Clear</button>
+              </h1>
             </div>
 
-            <div class="controls">
-              <div class="checkbox-group" data-status="inactive">
-                  <div class="checkbox"><i class="ion-android-done"></i></div>
-                  <div class="label" data-value="Laptops">Laptops</div>
-                  <input type="checkbox" name="checkbox" value="">
+              <div class="boxColor" *ngIf="showType">
+                  <ul *ngFor="let prodType of productsTypes">
+                      <li>
+                        <input #checkBoxType id="{{prodType}}" type="checkbox" (change)="searchByType(checkBoxType)">
+                        <label for="c1">&nbsp;{{prodType}}</label>
+                      </li>
+                    </ul>             
               </div>
-
-              <div class="checkbox-group" data-status="inactive">
-                  <div class="checkbox"><i class="ion-android-done"></i></div>
-                  <div class="label" data-value="Tablets">Tablets</div>
-                  <input type="checkbox" name="checkbox" value="">
-              </div>
-
-              <div class="checkbox-group" data-status="inactive">
-                  <div class="checkbox"><i class="ion-android-done"></i></div>
-                   <div class="label" data-value="Hybrid">Hybrids</div>
-                  <input type="checkbox" name="checkbox" value="">
-              </div>
-            </div>
         </div>
 
         <br>
 
         <div class="item">
             <div class="title">
-                <a href="#clear" data-action="open" class="down"> <i class="ion-android-arrow-dropdown"></i> Open</a>
-                <a href="#clear" data-action="clear"> <i class="ion-ios-trash-outline"></i> Clear</a>
-                <h1 class="h4">Screen</h1>
-            </div>
-
-            <div class="controls grid">
-              <div class="checkbox-group" data-status="inactive">
-                  <div class="checkbox"><i class="ion-android-done"></i></div>
-                  <div class="label" data-value="7 in">7 in</div>
-                  <input type="checkbox" name="checkbox" value="">
-              </div>
-
-              <div class="checkbox-group" data-status="inactive">
-                  <div class="checkbox"><i class="ion-android-done"></i></div>
-                  <div class="label" data-value="10 in">10 in</div>
-                  <input type="checkbox" name="checkbox" value="">
-              </div>
-
-              <div class="checkbox-group" data-status="inactive">
-                  <div class="checkbox"><i class="ion-android-done"></i></div>
-                   <div class="label" data-value="11 in">11 in</div>
-                  <input type="checkbox" name="checkbox" value="">
-              </div>
-
-              <div class="checkbox-group" data-status="inactive">
-                  <div class="checkbox"><i class="ion-android-done"></i></div>
-                  <div class="label" data-value="14 in">14 in</div>
-                  <input type="checkbox" name="checkbox" value="">
-              </div>
-
-              <div class="checkbox-group" data-status="inactive">
-                  <div class="checkbox"><i class="ion-android-done"></i></div>
-                  <div class="label" data-value="15 in">15 in</div>
-                  <input type="checkbox" name="checkbox" value="">
-              </div>
-
-              <div class="checkbox-group" data-status="inactive">
-                  <div class="checkbox"><i class="ion-android-done"></i></div>
-                   <div class="label" data-value="17 in">17 in</div>
-                  <input type="checkbox" name="checkbox" value="">
-              </div>
-            </div>
+                <h1 class="h4">Screen <input #switchScreen id="showScreen" type="checkbox" (change)="switchOnOff(switchScreen.checked, switchScreen.id)" class="switch" style="margin-left: 15px;">
+                 <button #clearScreens *ngIf="switchScreen.checked" value="clearScreens"(click)="clearAllcheckbox(clearScreens.value)" class="clear-button"> <i class="ion-ios-trash-outline"></i> Clear</button>
+               </h1>
+             </div>
+ 
+               <div class="boxColor" *ngIf="showScreen">
+                   <ul *ngFor="let prodScreen of productsScreens">
+                       <li>
+                         <input #checkBoxScreen id="{{prodScreen}}" type="checkbox" (change)="searchByScreen(checkBoxScreen)">
+                         <label for="c1">&nbsp;{{prodScreen}} in</label>
+                       </li>
+                     </ul>             
+               </div>
         </div>
 
         <br>
@@ -359,62 +332,21 @@
         </div>
         <br>
 
-        <div class="item lite">
+        <div class="item">
             <div class="title">
-                <a href="#clear" data-action="open" class="down"> <i class="ion-android-arrow-dropdown"></i> Open</a>
-                <a href="#clear" data-action="clear"> <i class="ion-ios-trash-outline"></i> Clear</a>
-                <h1 class="h4">Manufacturer</h1>
-            </div>
-
-            <div class="controls">
-              <div class="checkbox-group" data-status="inactive">
-                  <div class="checkbox"><i class="ion-android-done"></i></div>
-                  <div class="label" data-value="Hp">Hp</div>
-                  <input type="checkbox" name="checkbox" value="">
-              </div>
-
-              <div class="checkbox-group" data-status="inactive">
-                  <div class="checkbox"><i class="ion-android-done"></i></div>
-                  <div class="label" data-value="ASUS">ASUS</div>
-                  <input type="checkbox" name="checkbox" value="">
-              </div>
-
-              <div class="checkbox-group" data-status="inactive">
-                  <div class="checkbox"><i class="ion-android-done"></i></div>
-                   <div class="label" data-value="Acer">Acer</div>
-                  <input type="checkbox" name="checkbox" value="">
-              </div>
-
-              <div class="checkbox-group" data-status="inactive">
-                  <div class="checkbox"><i class="ion-android-done"></i></div>
-                   <div class="label" data-value="Dell">Dell</div>
-                  <input type="checkbox" name="checkbox" value="">
-              </div>
-
-              <div class="checkbox-group" data-status="inactive">
-                  <div class="checkbox"><i class="ion-android-done"></i></div>
-                   <div class="label" data-value="Sony">Sony</div>
-                  <input type="checkbox" name="checkbox" value="">
-              </div>
-
-              <div class="checkbox-group" data-status="inactive">
-                  <div class="checkbox"><i class="ion-android-done"></i></div>
-                   <div class="label" data-value="Apple">Apple</div>
-                  <input type="checkbox" name="checkbox" value="">
-              </div>
-
-              <div class="checkbox-group" data-status="inactive">
-                  <div class="checkbox"><i class="ion-android-done"></i></div>
-                   <div class="label" data-value="Lenovo">Lenovo</div>
-                  <input type="checkbox" name="checkbox" value="">
-              </div>
-
-              <div class="checkbox-group" data-status="inactive">
-                  <div class="checkbox"><i class="ion-android-done"></i></div>
-                   <div class="label" data-value="Microsoft">Microsoft</div>
-                  <input type="checkbox" name="checkbox" value="">
-              </div>
-            </div>
+                <h1 class="h4">Manufacturer <input #switchManufacturer id="showManufacturer" type="checkbox" (change)="switchOnOff(switchManufacturer.checked, switchManufacturer.id)" class="switch" style="margin-left: 15px;">
+                 <button #clearManufacturers *ngIf="switchManufacturer.checked" value="clearManufacturers"(click)="clearAllcheckbox(clearManufacturers.value)" class="clear-button"> <i class="ion-ios-trash-outline"></i> Clear</button>
+               </h1>
+             </div>
+ 
+               <div class="boxColor" *ngIf="showManufacturer">
+                   <ul *ngFor="let prodManufacturer of productsManufacturers">
+                       <li>
+                         <input #checkBoxManufacturer id="{{prodManufacturer}}" type="checkbox" (change)="searchByManufacturer(checkBoxManufacturer.id)">
+                         <label for="c1">&nbsp;{{prodManufacturer}}</label>
+                       </li>
+                     </ul>             
+               </div>
         </div>
       </div>
       <!-- /// -->
