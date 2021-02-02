@@ -30,6 +30,13 @@ import { FooterComponent } from './components/footer/footer.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { ErrorComponent } from './components/error/error.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { DashboardComponent } from './adminDashboard/adminComponents/dashboard/dashboard.component';
+import { AdminModule } from './adminDashboard/admin/admin.module';
+import { AdminMenuComponent } from './adminDashboard/adminComponents/admin-menu/admin-menu.component';
+import { AdminHeaderComponent } from './adminDashboard/adminComponents/admin-header/admin-header.component';
+import { BlogDashComponent } from './adminDashboard/adminComponents/blog-dash/blog-dash.component';
+import { ProductsListComponent } from './adminDashboard/adminComponents/products-list/products-list.component';
+import { ClientsListComponent } from './adminDashboard/adminComponents/clients-list/clients-list.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +56,13 @@ import { ProductDetailsComponent } from './components/product-details/product-de
     FooterComponent,
     SignUpComponent,
     ErrorComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    DashboardComponent,
+    AdminMenuComponent,
+    AdminHeaderComponent,
+    BlogDashComponent,
+    ProductsListComponent,
+    ClientsListComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +79,8 @@ import { ProductDetailsComponent } from './components/product-details/product-de
     FontAwesomeModule,
     MatCheckboxModule,
     MatListModule,
-    MatCardModule
+    MatCardModule,
+    AdminModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -15,7 +15,10 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { ErrorComponent } from './components/error/error.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
-
+import { DashboardComponent } from './adminDashboard/adminComponents/dashboard/dashboard.component';
+import { BlogDashComponent } from './adminDashboard/adminComponents/blog-dash/blog-dash.component';
+import { ProductsListComponent } from './adminDashboard/adminComponents/products-list/products-list.component';
+import { ClientsListComponent } from './adminDashboard/adminComponents/clients-list/clients-list.component';
 
 const routes: Routes = [
   { 
@@ -41,6 +44,16 @@ const routes: Routes = [
       { path: 'login', component: LoginComponent },
       { path: 'signUp', component: SignUpComponent },
       { path: 'logout', component: LogoutComponent }
+    ]
+  },
+  { 
+    path: 'dashboard',
+    component: DashboardComponent,
+    children:
+    [
+      { path: 'blog-dashboard', component: BlogDashComponent },
+      { path: 'products-list', component: ProductsListComponent },
+      { path: 'clients-list', component: ClientsListComponent },
     ]
   },
   { path: '**' , component: ErrorComponent }
