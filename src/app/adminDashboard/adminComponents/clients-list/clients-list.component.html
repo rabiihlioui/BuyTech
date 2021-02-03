@@ -1,1 +1,63 @@
-<p>clients-list works!</p>
+<div class="main-content-container container-fluid px-4">
+  <!-- Page Header -->
+  <div class="page-header row no-gutters py-4">
+    <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+      <span class="text-uppercase page-subtitle">Overview</span>
+      <h3 class="page-title">List Of Products</h3>
+    </div>
+  </div>
+  <!-- End Page Header -->
+  <!-- Default Light Table -->
+  <div class="row">
+    <div class="col">
+      <div class="card card-small mb-4">
+        <div class="card-header border-bottom">
+          <div class="paginate" style="text-align: center;">
+            <pagination-controls (pageChange)="currentPg = $event"></pagination-controls>
+            <div>
+              <small>Number of products per page </small>
+              <button class="button-page" (click)="decrementNbreOfProducts()" [disabled]="disableDecrement"><fa-icon [icon]="faMinusCircle"></fa-icon></button>
+              <input class="input-page" [value]="productsNbrePerPage">
+              <button class="button-page" (click)="incrementNbreOfProducts()" [disabled]="disableIncrement"><fa-icon [icon]="faPlusCircle"></fa-icon></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-body p-0 pb-3">
+          <table class="table mb-0">
+            <thead class="bg-light">
+              <tr>
+                <th scope="col" class="border-0">Type</th>
+                <th scope="col" class="border-0">Brand</th>
+                <th scope="col" class="border-0">Sub Brand</th>
+                <th scope="col" class="border-0">Price</th>
+                <th scope="col" class="border-0">Operating System</th>
+                <th scope="col" class="border-0">Processor Technology</th>
+                <th scope="col" class="border-0">Graphics</th>
+                <th scope="col" class="border-0">Memory</th>
+                <th scope="col" class="border-0">Hard Drive</th>
+                <th scope="col" class="border-0">Screen</th>
+                <th scope="col" class="border-0">Quantity</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let product of products | paginate: {itemsPerPage: productsNbrePerPage, currentPage: currentPg}">
+                <td>{{ product.type }}</td>
+                <td>{{ product.brand }}</td>
+                <td>{{ product.subBrand }}</td>
+                <td>{{ product.price }} (TND)</td>
+                <td>{{ product.operatingSystem }}</td>
+                <td>{{ product.processorTechnology }}</td>
+                <td>{{ product.graphics }}</td>
+                <td>{{ product.memory }}</td>
+                <td>{{ product.hardDrive }}</td>
+                <td>{{ product.screen }}"</td>
+                <td>{{ product.quantity }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -37,6 +37,7 @@ import { AdminHeaderComponent } from './adminDashboard/adminComponents/admin-hea
 import { BlogDashComponent } from './adminDashboard/adminComponents/blog-dash/blog-dash.component';
 import { ProductsListComponent } from './adminDashboard/adminComponents/products-list/products-list.component';
 import { ClientsListComponent } from './adminDashboard/adminComponents/clients-list/clients-list.component';
+import { AddProductComponent } from './adminDashboard/adminComponents/add-product/add-product.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { ClientsListComponent } from './adminDashboard/adminComponents/clients-l
     AdminHeaderComponent,
     BlogDashComponent,
     ProductsListComponent,
-    ClientsListComponent
+    ClientsListComponent,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,
