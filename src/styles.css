@@ -10,6 +10,8 @@
 @import url('assets/css/pagination.css');
 
 
+@import "../node_modules/ag-grid-community/dist/styles/ag-grid.css";
+@import "../node_modules/ag-grid-community/dist/styles/ag-theme-alpine.css";
 
 html {
     font-size: 100%;

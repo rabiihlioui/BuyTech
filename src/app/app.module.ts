@@ -39,6 +39,8 @@ import { ProductsListComponent } from './adminDashboard/adminComponents/products
 import { ClientsListComponent } from './adminDashboard/adminComponents/clients-list/clients-list.component';
 import { AddProductComponent } from './adminDashboard/adminComponents/add-product/add-product.component';
 
+import { AgGridModule } from 'ag-grid-angular';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -82,7 +84,8 @@ import { AddProductComponent } from './adminDashboard/adminComponents/add-produc
     MatCheckboxModule,
     MatListModule,
     MatCardModule,
-    AdminModule
+    AdminModule,
+    AgGridModule.withComponents([])
   ],
   providers: [],
   bootstrap: [AppComponent]

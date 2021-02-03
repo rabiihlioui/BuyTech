@@ -14,21 +14,37 @@ export class ProductsListComponent implements OnInit {
 
   products: Product[];
 
-  //productsNbrePerPage: number = 10;
+/*   //////productsNbrePerPage: number = 10;
   limitProductNbrePerPage: number = 10;
   step: number = 2;
-  //disableIncrement: boolean = true;
-  //disableDecrement: boolean = false;
+  //////disableIncrement: boolean = true;
+  //////disableDecrement: boolean = false;
 
   paginationControllers: Array<boolean | number> = [ true, false, 10 ];  // 0 index for disableIncrement
                                                                          // 1 index for disableDecrement
-                                                                         // 2 index for productsNbrePerPage
+                                                                         // 2 index for productsNbrePerPage */
 
   faMinusCircle = faMinusCircle;
   faPlusCircle = faPlusCircle;
-  faSort = faSort;
+/*   faSort = faSort;
 
-  sorted: boolean = false;
+  sorted: boolean = false; */
+
+  columnDefs = [
+    { headerName: 'Type', field: 'type', sortable: true, filter: true },
+    { headerName: 'Brand', field: 'brand', sortable: true, filter: true },
+    { headerName: 'Sub Brand', field: 'subBrand', sortable: true, filter: true },
+    { headerName: 'Price (TND)', field: 'price', sortable: true, sortingOrder: ["asc", "desc"], filter: true },
+    { headerName: 'Operating System', field: 'operatingSystem', sortable: true, filter: true },
+    { headerName: 'Processor Technology', field: 'processorTechnology', sortable: true, filter: true },
+    { headerName: 'Graphics', field: 'graphics', sortable: true, filter: true },
+    { headerName: 'Memory', field: 'memory', sortable: true, filter: true },
+    { headerName: 'Hard Drive', field: 'hardDrive', sortable: true, filter: true },
+    { headerName: 'Screen (inch)', field: 'screen', sortable: true, filter: true },
+    { headerName: 'Quantity', field: 'quantity', sortable: true, filter: true }
+];
+
+rowData = [];
 
   constructor(
     private productService: ProductService,
@@ -41,11 +57,11 @@ export class ProductsListComponent implements OnInit {
 
   getAllProductsList() {
     this.productService.getProductsList().subscribe(
-      data => this.products = data
+      data => this.rowData = data
     );
   }
 
-  incrementNbreOfProducts() {
+/*   incrementNbreOfProducts() {
     let productsNbrePerPage: any = this.paginationControllers[2];
     this.paginationControllers = this.paginationService.incrementNbreOfProducts(productsNbrePerPage,
                                                                                 this.limitProductNbrePerPage,
@@ -56,6 +72,6 @@ export class ProductsListComponent implements OnInit {
     let productsNbrePerPage: any = this.paginationControllers[2];
     this.paginationControllers = this.paginationService.decrementNbreOfProducts(productsNbrePerPage,
                                                                                 this.step);
-  }
+  } */
 
 }

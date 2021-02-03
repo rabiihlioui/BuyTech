@@ -8,7 +8,7 @@
   </div>
   <!-- End Page Header -->
   <!-- Default Light Table -->
-  <div class="row">
+  <!-- <div class="row">
     <div class="col">
       <div class="card card-small mb-4">
         <div class="card-header border-bottom">
@@ -114,5 +114,17 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
+
+    <ag-grid-angular
+      style="width: 100%; height: 550px;"
+      class="ag-theme-alpine"
+      [rowData]="rowData"
+      [columnDefs]="columnDefs"
+      [pagination]="true"
+      [paginationAutoPageSize]="true"
+    >
+    </ag-grid-angular>
+
+
 </div>
