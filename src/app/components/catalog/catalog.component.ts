@@ -151,7 +151,7 @@ export class CatalogComponent implements OnInit {
   getAllProductsTypes() {
     this.productsTypes = this.products.map(product => product.type).filter((value, index, self) => self.indexOf(value) === index);
     for(var i = 0 ; i < this.productsTypes.length ; i++){
-      this.productsTypes[i] = this.productsTypes[i].charAt(0).toUpperCase() + this.productsTypes[i].substr(1);;
+      this.productsTypes[i] = this.productsTypes[i].charAt(0).toUpperCase() + this.productsTypes[i].substr(1);
     }  
   }
 

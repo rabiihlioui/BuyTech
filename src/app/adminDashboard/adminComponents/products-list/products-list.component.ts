@@ -5,6 +5,8 @@ import { Product } from 'src/app/models/product';
 import { faMinusCircle, faPlusCircle, faSort } from '@fortawesome/free-solid-svg-icons';
 import { PaginationService } from 'src/app/services/pagination.service';
 
+import { ToastrService } from 'ngx-toastr';
+
 @Component({
   selector: 'app-products-list',
   templateUrl: './products-list.component.html',
@@ -31,34 +33,57 @@ export class ProductsListComponent implements OnInit {
   sorted: boolean = false; */
 
   columnDefs = [
-    { headerName: 'Type', field: 'type', sortable: true, filter: true },
-    { headerName: 'Brand', field: 'brand', sortable: true, filter: true },
-    { headerName: 'Sub Brand', field: 'subBrand', sortable: true, filter: true },
-    { headerName: 'Price (TND)', field: 'price', sortable: true, sortingOrder: ["asc", "desc"], filter: true },
-    { headerName: 'Operating System', field: 'operatingSystem', sortable: true, filter: true },
-    { headerName: 'Processor Technology', field: 'processorTechnology', sortable: true, filter: true },
-    { headerName: 'Graphics', field: 'graphics', sortable: true, filter: true },
-    { headerName: 'Memory', field: 'memory', sortable: true, filter: true },
-    { headerName: 'Hard Drive', field: 'hardDrive', sortable: true, filter: true },
-    { headerName: 'Screen (inch)', field: 'screen', sortable: true, filter: true },
-    { headerName: 'Quantity', field: 'quantity', sortable: true, filter: true }
+    { headerName: 'Type', field: 'type',
+        cellRenderer: (data) => {
+          return data.value[0].toUpperCase() + data.value.substr(1)
+        }
+    },
+    { headerName: 'Brand', field: 'brand' },
+    { headerName: 'Sub Brand', field: 'subBrand' },
+    { headerName: 'Price (TND)', field: 'price', sortingOrder: ["asc", "desc"] },
+    { headerName: 'Operating System', field: 'operatingSystem' },
+    { headerName: 'Processor Technology', field: 'processorTechnology' },
+    { headerName: 'Graphics', field: 'graphics' },
+    { headerName: 'Memory', field: 'memory' },
+    { headerName: 'Hard Drive', field: 'hardDrive' },
+    { headerName: 'Screen (inch)', field: 'screen' },
+    { headerName: 'Quantity', field: 'quantity' }
 ];
+
+defaultColDef = {
+  editable: true,
+  sortable: true,
+  filter: true
+};
+
+editType = 'fullRow';
 
 rowData = [];
 
+updatedProducts = []
+
+gridApi: any;
+columnApi: any;
+
   constructor(
     private productService: ProductService,
-    private paginationService: PaginationService
+    private paginationService: PaginationService,
+    private toastrService: ToastrService
   ) { }
 
   ngOnInit() {
     this.getAllProductsList();
+    this.resetUpdatedRowsTable();
   }
 
   getAllProductsList() {
     this.productService.getProductsList().subscribe(
       data => this.rowData = data
     );
+  }
+
+  resetUpdatedRowsTable() {
+    this.updatedProducts = [];
   }
 
 /*   incrementNbreOfProducts() {
@@ -73,5 +98,67 @@ rowData = [];
     this.paginationControllers = this.paginationService.decrementNbreOfProducts(productsNbrePerPage,
                                                                                 this.step);
   } */
+
+/*   onGridReady(event: any) {
+    this.gridApi = event.api;
+    this.columnApi = event.columnApi;
+  }
+  (gridReady)="onGridReady($event)" */
+
+/*   onRowClicked(event: any) {
+    console.log('row', event);
+  }
+  (rowClicked)='onRowClicked($event)
+ */
+
+/*   onSelectionChanged(event: any) {
+    console.log("selection", event);
+    (selectionChanged) = 'onSelectionChanged($event)'
+  } */
+
+  onRowValueChanged(event: any) {
+    let updatedProduct = event.data;
+    for (let i = 0; i < this.updatedProducts.length; i++) {
+      const currentProduct = this.updatedProducts[i];
+      if(updatedProduct.id_prod == currentProduct.id_prod) {
+        const index = this.updatedProducts.indexOf(currentProduct, 0);
+        this.updatedProducts.splice(index, 1);
+      } 
+    }
+    this.updatedProducts.push(updatedProduct)
+    console.log(this.updatedProducts)
+  }
+
+  updateRows() {
+    let updatedProductsNbre = this.updatedProducts.length;
+    if(updatedProductsNbre == 1) {
+      this.productService.updateProduct(this.updatedProducts[0].id_prod, this.updatedProducts[0]).subscribe(
+        data => this.displaySuccessToastr('Product has been updated successfully'),
+        error => this.displayErrorToastr('An error has occured. Please try again')
+      );
+      this.resetUpdatedRowsTable();
+    }
+    else {
+      this.productService.updateMultipleProducts(this.updatedProducts).subscribe(
+        data => this.displaySuccessToastr(data),
+        error => this.displaySuccessToastr(error.error.text)
+      );
+      this.resetUpdatedRowsTable();
+    }
+  }
+
+  displaySuccessToastr(message: string) {
+    this.toastrService.success(message, 'Success', {
+      timeOut: 6000,
+      progressBar: false
+    });
+  }
+
+  displayErrorToastr(message: string) {
+    this.toastrService.error(message, 'Error', {
+      timeOut: 6000,
+      progressBar: false
+    });
+  }
 
 }

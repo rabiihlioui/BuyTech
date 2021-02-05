@@ -40,6 +40,7 @@ import { ClientsListComponent } from './adminDashboard/adminComponents/clients-l
 import { AddProductComponent } from './adminDashboard/adminComponents/add-product/add-product.component';
 
 import { AgGridModule } from 'ag-grid-angular';
+import { ClientJoiningDatePipe } from './adminDashboard/pipes/client-joining-date.pipe';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import { AgGridModule } from 'ag-grid-angular';
     BlogDashComponent,
     ProductsListComponent,
     ClientsListComponent,
-    AddProductComponent
+    AddProductComponent,
+    ClientJoiningDatePipe
   ],
   imports: [
     BrowserModule,

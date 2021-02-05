@@ -116,11 +116,16 @@
     </div>
   </div> -->
 
+    <button (click)="updateRows()">Save Update</button>
+
     <ag-grid-angular
       style="width: 100%; height: 550px;"
       class="ag-theme-alpine"
-      [rowData]="rowData"
+      (rowValueChanged) = 'onRowValueChanged($event)'
       [columnDefs]="columnDefs"
+      [defaultColDef]="defaultColDef"
+      [editType]="editType"
+      [rowData]="rowData"
       [pagination]="true"
       [paginationAutoPageSize]="true"
     >

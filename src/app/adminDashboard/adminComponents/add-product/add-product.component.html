@@ -1,1 +1,103 @@
-<p>add-product works!</p>
+<div class="main-content-container container-fluid px-4">
+    <!-- Page Header -->
+    <div class="page-header row no-gutters py-4">
+      <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+        <h3 class="page-title">Add New Product</h3>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card card-small mb-4">
+          <div class="card-header border-bottom">
+            <h6 class="m-0">Product Details</h6>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item p-3">
+              <div class="row">
+                <div class="col">
+                  <form #prodForm="ngForm">
+                    <div class="form-row">
+                      <div class="form-group col-md-4">
+                        <label for="prodType">Type</label>
+                        <!-- <input #type="ngModel" type="text" class="form-control" id="type" name="type" placeholder="Type" required ngModel> </div> -->
+                        <select #type="ngModel" class="form-control" id="type" name="type" required ngModel>
+                          <option value="">Select a Type</option>
+                          <option *ngFor="let prodType of prodTypes">
+                            {{prodType}}
+                          </option>
+                        </select>
+                      </div>
+                      <div class="form-group col-md-4">
+                        <label for="brand">Brand</label>
+                        <input #brand="ngModel" type="text" class="form-control" id="brand" name="brand" placeholder="Brand" required ngModel> </div>
+                      <div class="form-group col-md-4">
+                        <label for="subBrand">Sub Brand</label>
+                        <input #subBrand="ngModel" type="text" class="form-control" id="subBrand" name="subBrand" placeholder="Sub Brand" required ngModel> </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-md-4">
+                        <label for="price">Price (TND)</label>
+                        <input #price="ngModel" type="number" class="form-control" id="price" name="price" placeholder="Price" required ngModel> </div>
+                      <div class="form-group col-md-4">
+                        <label for="operatingSystem">Operating System</label>
+                        <input #operatingSystem="ngModel" type="text" class="form-control" name="operatingSystem" id="operatingSystem" placeholder="Operating System" required ngModel> </div>
+                      <div class="form-group col-md-4">
+                        <label for="graphics">Graphics</label>
+                        <input #graphics="ngModel" type="text" class="form-control" id="graphics" name="graphics" placeholder="Graphics" required ngModel> </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="processorTechnology">Processor Technology</label>
+                        <input #processorTechnology="ngModel" type="text" class="form-control" id="processorTechnology" name="processorTechnology" placeholder="Processor Technology" required ngModel> </div>
+                      <div class="form-group col-md-6">
+                        <label for="processor">Processor</label>
+                        <input #processor="ngModel" type="text" class="form-control" id="processor" name="processor" placeholder="Processor" required ngModel> </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-md-4">
+                        <label for="memory">Memory</label>
+                        <input #memory="ngModel" type="text" class="form-control" id="memory" name="memory" placeholder="Memory" required ngModel> </div>
+                      <div class="form-group col-md-4">
+                        <label for="hardDrive">Hard Drive</label>
+                        <input #hardDrive="ngModel" type="text" class="form-control" id="hardDrive" name="hardDrive" placeholder="Hard Drive" required ngModel> </div>
+                      <div class="form-group col-md-4">
+                        <label for="wireless">Wireless</label>
+                        <input #wireless="ngModel" type="text" class="form-control" id="wireless" name="wireless" placeholder="Wireless" required ngModel> </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="screen">Screen</label>
+                        <input #screen="ngModel" type="number" class="form-control" id="screen" name="screen" placeholder="Screen" required ngModel> </div>
+                      <div class="form-group col-md-6">
+                        <label for="quantity">Quantity</label>
+                        <input #quantity="ngModel" type="number" class="form-control" id="quantity" name="quantity" placeholder="Quantity" required ngModel> </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="powerSupply">Power Supply</label>
+                        <input #powerSupply="ngModel" type="text" class="form-control" id="powerSupply" name="powerSupply" placeholder="Power Supply" required ngModel> </div>
+                      <div class="form-group col-md-6">
+                        <label for="battery">Battery</label>
+                        <input #battery="ngModel" type="text" class="form-control" id="battery" name="battery" placeholder="Battery" required ngModel> </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-md-12">
+                        <label for="description">Description</label>
+                        <textarea #description="ngModel" class="form-control" id="description" name="description" rows="5" placeholder="Product Description" required ngModel></textarea>
+                      </div>
+                    </div>
+                    <button type="submit" class="btn btn-success" [disabled]="prodForm.invalid" (click)="addProduct(prodForm.value); prodForm.reset()">Add Product</button>
+                    <button type="reset" class="btn btn-warning" style="margin-left: 15px;" (click)="loadProductTypes()">Cancel</button>
+                  </form>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  
+  
+  </div>

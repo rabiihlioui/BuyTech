@@ -30,6 +30,10 @@ export class ProductService {
     return this.httpClient.put(`${this.baseURL}/${id}`, product);
   }
 
+  updateMultipleProducts(products: any): Observable<any>{
+    return this.httpClient.put(`${this.baseURL}/updateMultipleProd`, products);
+  }
+
   deleteProduct(id: number): Observable<any>{
     return this.httpClient.delete(`${this.baseURL}/${id}`);
   }
@@ -52,6 +56,10 @@ export class ProductService {
 
   getProductsBySortType(sortType: string): Observable<Product[]> {
     return this.httpClient.get<Product[]>(`${this.baseURL}/sort/${sortType}`);
+  }
+
+  getProductTypesList(): Observable<string[]> {
+    return this.httpClient.get<string[]>(`${this.baseURL}/productTypes`);
   }
 
 }
