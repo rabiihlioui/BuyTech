@@ -42,6 +42,9 @@ import { AddProductComponent } from './adminDashboard/adminComponents/add-produc
 import { AgGridModule } from 'ag-grid-angular';
 import { ClientJoiningDatePipe } from './adminDashboard/pipes/client-joining-date.pipe';
 
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthHttpInterceptorService } from './services/auth-http-interceptor.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -89,7 +92,13 @@ import { ClientJoiningDatePipe } from './adminDashboard/pipes/client-joining-dat
     AdminModule,
     AgGridModule.withComponents([])
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthHttpInterceptorService,
+      multi: true 
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

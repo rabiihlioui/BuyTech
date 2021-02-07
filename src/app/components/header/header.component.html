@@ -38,11 +38,14 @@
           </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li [ngClass]="{'active': activateMenuItemService.activeLogin}">
+          <li [ngClass]="{'active': activateMenuItemService.activeLogin}" *ngIf="!isUserLoggedIn">
             <a (click)="activateMenuItemService.activateLogin()" routerLink="/login"> <i class="ion-android-person"></i> Login </a>
           </li>
-          <li [ngClass]="{'active': activateMenuItemService.activeSignUp}">
+          <li [ngClass]="{'active': activateMenuItemService.activeSignUp}" *ngIf="!isUserLoggedIn">
             <a (click)="activateMenuItemService.activateSignUp()" routerLink="/signUp"> Sign Up</a>
+          </li>
+          <li [ngClass]="{'active': activateMenuItemService.activeHome}" *ngIf="isUserLoggedIn">
+            <a (click)="logOut(); activateMenuItemService.activateHome()" routerLink="/"> Log Out</a>
           </li>
         </ul>
       </div><!--/.nav-collapse -->

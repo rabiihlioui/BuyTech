@@ -20,6 +20,8 @@ import { BlogDashComponent } from './adminDashboard/adminComponents/blog-dash/bl
 import { ProductsListComponent } from './adminDashboard/adminComponents/products-list/products-list.component';
 import { ClientsListComponent } from './adminDashboard/adminComponents/clients-list/clients-list.component';
 import { AddProductComponent } from './adminDashboard/adminComponents/add-product/add-product.component';
+import { ClientRouterGuardService } from './services/routerGuards/client-router-guard.service';
+import { AdminRouterGuardService } from './services/routerGuards/admin-router-guard.service';
 
 const routes: Routes = [
   { 
@@ -38,25 +40,27 @@ const routes: Routes = [
       },
       { path: 'blog', component: BlogComponent },
       { path: 'gallery', component: GalleryComponent },
-      { path: 'cart', component: CartComponent },
+      { path: 'cart', component: CartComponent, canActivate: [ClientRouterGuardService] },
       { path: 'checkout', component: CheckoutComponent },
       { path: 'faq', component: FaqComponent },
       { path: 'contacts', component: ContactsComponent },
       { path: 'login', component: LoginComponent },
       { path: 'signUp', component: SignUpComponent },
-      { path: 'logout', component: LogoutComponent }
-    ]
+      { path: '', component: HomeComponent },
+
+    ],
   },
   { 
     path: 'dashboard',
     component: DashboardComponent,
     children:
     [
-      { path: 'blog-dashboard', component: BlogDashComponent },
-      { path: 'products-list', component: ProductsListComponent },
-      { path: 'clients-list', component: ClientsListComponent },
-      { path: 'add-product', component: AddProductComponent }
-    ]
+      { path: 'blog-dashboard', component: BlogDashComponent, canActivate: [AdminRouterGuardService] },
+      { path: 'products-list', component: ProductsListComponent, canActivate: [AdminRouterGuardService] },
+      { path: 'clients-list', component: ClientsListComponent, canActivate: [AdminRouterGuardService] },
+      { path: 'add-product', component: AddProductComponent, canActivate: [AdminRouterGuardService] }
+    ],
+    canActivate: [AdminRouterGuardService]
   },
   { path: '**' , component: ErrorComponent }
 ];

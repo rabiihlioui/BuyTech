@@ -19,16 +19,18 @@ export class SignUpComponent implements OnInit {
   }
 
   registerNewClient(client: Client){
+    client.role = 'client';
     this.clientService.getClientByEmail(client.email).subscribe(
-      data => this.displayToastr('Client is already registered. Try to login'),
+      data => this.displayErrorToastr('Client is already registered. Try to login'),
       error => {
         client.joiningDate = new Date();
         this.clientService.createClient(client).subscribe();
+        this.displaySuccessToastr('You are now a registered client, you may login');
       }
     );
   }
 
-  displayToastr(message: string) {
+  displayErrorToastr(message: string) {
     this.toastrService.error(message, 'Error', {
       timeOut: 6000,
       progressBar: false
@@ -54,6 +56,13 @@ export class SignUpComponent implements OnInit {
       progressBar: false
     }); */
 
+  }
+
+  displaySuccessToastr(message: string) {
+    this.toastrService.success(message, 'Success', {
+      timeOut: 6000,
+      progressBar: false
+    });
   }
 
 }
